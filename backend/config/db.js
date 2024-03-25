@@ -1,15 +1,14 @@
 // db.js
+require("dotenv").config();
+const { MONGO_URL } = process.env;
 
 const mongoose = require("mongoose");
-const db =
-  "mongodb+srv://mongousr:mongopw@cluster0.g2itnfk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-/* Replace <password> with your database password */
 
 mongoose.set("strictQuery", true, "useNewUrlParser", true);
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(db);
+    await mongoose.connect(MONGO_URL);
     console.log("MongoDB is Connected...");
   } catch (err) {
     console.error(err.message);

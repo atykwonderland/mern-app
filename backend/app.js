@@ -3,8 +3,9 @@ const connectDB = require("./config/db");
 const routes = require("./routes/api/books");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
 const app = express();
+const cookieParser = require("cookie-parser");
+const authRoute = require("./routes/api/AuthRoutes");
 
 // use the cors middleware with the
 // origin and credentials options
@@ -17,6 +18,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // use the routes module as a middleware
 // for the /api/books path
 app.use("/api/books", routes);
+
+// AUTH
+app.use(cookieParser());
+
+app.use(express.json());
+
+app.use("/", authRoute);
 
 // Connect Database
 connectDB();

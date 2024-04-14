@@ -1,63 +1,129 @@
-*,
-::before,
-::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+@font-face {
+  font-family: AlternateGothicProCyrillic;
+  src: url(./assets/AlternateGothicProCyrillic.woff2);
+}
+@font-face {
+  font-family: RobotoMono-Regular;
+  src: url(./assets/RobotoMono-Regular.woff2);
 }
 
-label {
-  font-size: 1.2rem;
-  color: #656262;
+.mainContainer {
+  background-color: #272727;
+  color: white;
+  flex-direction: column;
+  font-family: RobotoMono-Regular;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-html,
-body {
-  height: 100%;
-  width: 100%;
+/* START */
+
+.titleContainer {
+  color: rgb(255, 72, 72);
+  display: flex;
+  flex-direction: column;
+  font-family: AlternateGothicProCyrillic;
+  font-size: 80px;
+  font-weight: bolder;
+  align-items: center;
+  justify-content: center;
 }
 
-body {
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 260px;
+}
+
+.inputButton {
+  border: 2px solid rgb(255, 72, 72);
+  background-color: transparent;
+  color: white;
+  padding: 8px 24px;
+  margin: 8px;
+  font-size: 22px;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+.inputButton:hover {
+  background-color: rgb(255, 72, 72);
+  color: white;
+}
+
+/* HOME */
+
+.homePage {
+  height: 100vh;
+  width: 100vw;
+  background-color: #272727;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(143, 187, 204, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: RobotoMono-Regular;
+  font-size: 3rem;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.form_container {
-  background-color: #fff;
+.homePage span {
+  color: rgb(102, 102, 102);
+}
+
+.homePage button {
+  border: 2px solid rgb(255, 72, 72);
+  background-color: transparent;
+  color: white;
+  padding: 8px 24px;
+  margin: 8px;
+  font-family: RobotoMono-Regular;
+  font-size: 22px;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+.homePage button:hover {
+  background-color: rgb(255, 72, 72);
+  color: white;
+}
+
+/* LOGIN & SIGNUP */
+
+.formContainer {
+  background-color: #565656;
   padding: 2rem 3rem;
   border-radius: 0.5rem;
-  width: 100%;
   max-width: 400px;
   box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 }
 
-.form_container > h2 {
+.formContainer > h2 {
   margin-block: 1rem;
   padding-block: 0.6rem;
-  color: rgba(0, 212, 255, 1);
+  font-family: AlternateGothicProCyrillic;
+  font-size: 60px;
+  color: rgb(255, 72, 72);
 }
 
-.form_container > form {
+.formContainer > form {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
 }
 
-.form_container div {
+.formContainer div {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
 }
 
-.form_container input {
+.formContainer input {
   border: none;
   padding: 0.5rem;
   border-bottom: 1px solid gray;
@@ -65,66 +131,28 @@ body {
   outline: none;
 }
 
-.form_container input::placeholder {
+.formContainer input::placeholder {
   font-size: 0.9rem;
   font-style: italic;
 }
 
-.form_container button {
-  background-color: rgba(0, 212, 255, 1);
-  color: #fff;
-  border: none;
-  padding: 0.6rem;
-  font-size: 1rem;
+.formContainer button {
+  border: 2px solid rgb(255, 72, 72);
+  background-color: transparent;
+  color: white;
+  padding: 8px 24px;
+  margin: 8px;
+  font-size: 22px;
+  border-radius: 24px;
   cursor: pointer;
-  border-radius: 0.3rem;
+}
+
+.formContainer button:hover {
+  background-color: rgb(255, 72, 72);
+  color: white;
 }
 
 span a {
   text-decoration: none;
-  color: rgba(0, 212, 255, 1);
-}
-
-.home_page {
-  height: 100vh;
-  width: 100vw;
-  background: #000;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  font-size: 3rem;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.home_page span {
-  color: rgba(0, 212, 255, 1);
-}
-
-.home_page button {
-  background-color: rgb(27, 73, 83);
-  color: #fff;
-  cursor: pointer;
-  padding: 1rem 3rem;
-  font-size: 2rem;
-  border-radius: 2rem;
-  transition: ease-in 0.3s;
-  border: none;
-}
-
-.home_page button:hover {
-  background-color: rgba(0, 212, 255, 1);
-}
-
-
-@media only screen and (max-width: 1200px){
-  .home_page{
-    font-size: 1.5rem;
-  }
-  .home_page button {
-    padding: 0.6rem 1rem;
-    font-size: 1.5rem;
-  }
+  color: rgb(255, 72, 72);
 }

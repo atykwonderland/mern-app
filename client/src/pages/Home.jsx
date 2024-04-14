@@ -32,15 +32,15 @@ const Home = () => {
   };
 
   return (
-    <>
-      <div className="home_page">
+    <div className="mainContainer">
+      <div className="homePage">
         <h4>
           {" "}
           Hello <span>{username}</span>
         </h4>
         <button onClick={Logout}>LOGOUT</button>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 const express = require("express");
 const connectDB = require("./config/db");
-const routes = require("./routes/api/books");
+const routes = require("./routes/api/Festivals");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const app = express();
@@ -16,8 +16,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // use the routes module as a middleware
-// for the /api/books path
-app.use("/api/books", routes);
+// for the /api/festivals path
+app.use("/api/festivals", routes);
 
 // AUTH
 app.use(cookieParser());

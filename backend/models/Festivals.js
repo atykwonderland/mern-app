@@ -5,19 +5,16 @@ const FestivalSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  date: [
-    {
-      type: Date,
-      required: true
-    },
-    {
-      type: Date,
-      required: true
-    }
-  ],
+  date_start: {
+    type: Date,
+    required: true
+  },
+  date_end: {
+    type: Date,
+    required: true
+  },
   location: {
     type: String,
-    required: true
   },
   organizer: {
     type: String

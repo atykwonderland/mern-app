@@ -26,7 +26,7 @@ function ShowFestivalDetails(props) {
         navigate('/festivals');
       })
       .catch((err) => {
-        console.log('Error form ShowFestivalDetails_deleteClick');
+        console.log('Error from ShowFestivalDetails_deleteClick');
       });
   };
 
@@ -41,8 +41,13 @@ function ShowFestivalDetails(props) {
           </tr>
           <tr>
             <th scope='row'></th>
-            <td>Date</td>
-            <td>[{festival.date[0]}, {festival.date[1]}]</td>
+            <td>Start Date</td>
+            <td>{festival.date_start}</td>
+          </tr>
+          <tr>
+            <th scope='row'></th>
+            <td>End Date</td>
+            <td>{festival.date_end}</td>
           </tr>
           <tr>
             <th scope='row'></th>

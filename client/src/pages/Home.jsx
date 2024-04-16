@@ -30,7 +30,7 @@ const Home = () => {
     removeCookie("token");
     navigate("/");
   };
-
+//TODO design this into the page for "My Festivals"
   return (
     <div className="mainContainer">
       <div className="homePage">

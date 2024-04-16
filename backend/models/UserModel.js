@@ -15,6 +15,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Your password is required"],
   },
+  festivals: {
+    type: [{item: {type: mongoose.Schema.ObjectId, ref: 'Item'}}],
+  },
   createdAt: {
     type: Date,
     default: new Date(),

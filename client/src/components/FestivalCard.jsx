@@ -6,7 +6,7 @@ const FestivalCard = ({festival}) => {
   return (
     <div className='card-container'>
       <img
-        src='https://images.unsplash.com/photo-1495446815901-a7297e633e8d' /* TODO pick different image */
+        src='https://www.laserworld.com/images/stories/2016/masters-hardcore/masters-of-hardcore-003.jpg'
         alt='Festivals'
         height={200}
       />

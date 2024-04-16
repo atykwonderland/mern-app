@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { DateRangePicker } from 'rsuite';
 
 function UpdateFestivalInfo(props) {
   const [festival, setFestival] = useState({
     name: "",
-    date: {
-      start: "",
-      end: ""
-    },
+    date_start: "",
+    date_end: "",
     location: "",
     organizer: "",
     genre: "",
@@ -23,13 +20,13 @@ function UpdateFestivalInfo(props) {
       .get(`http://localhost:8082/api/festivals/${id}`)
       .then((res) => {
         setFestival({
-          title: res.data.title,
-          isbn: res.data.isbn,
-          author: res.data.author,
-          description: res.data.description,
-          published_date: res.data.published_date,
-          publisher: res.data.publisher,
-        });//TODO
+          name: res.data.name,
+          date_start: res.data.date_start,
+          date_end: res.data.date_end,
+          location: res.data.location,
+          organizer: res.data.organizer,
+          genre: res.data.genre,
+        });
       })
       .catch((err) => {
         console.log('Error from UpdateFestivalInfo');
@@ -42,14 +39,14 @@ function UpdateFestivalInfo(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-//TODO
+
     const data = {
-      title: book.title,
-      isbn: book.isbn,
-      author: book.author,
-      description: book.description,
-      published_date: book.published_date,
-      publisher: book.publisher,
+      name: festival.name,
+      date_start: festival.date_start,
+      date_end: festival.date_end,
+      location: festival.location,
+      organizer: festival.organizer,
+      genre: festival.genre,
     };
 
     axios
@@ -92,7 +89,30 @@ function UpdateFestivalInfo(props) {
               />
             </div>
             <br />
-
+            <div className='form-group'>
+              <label htmlFor='date_start'>Start Date</label>
+              <input
+                type='date'
+                placeholder='Start Date'
+                name='date_start'
+                className='form-control'
+                value={festival.date_start}
+                onChange={onChange}
+              />
+            </div>
+            <br />
+            <div className='form-group'>
+              <label htmlFor='date_end'>End Date</label>
+              <input
+                type='date'
+                placeholder='End Date'
+                name='date_end'
+                className='form-control'
+                value={festival.date_end}
+                onChange={onChange}
+              />
+            </div>
+            <br />
             <div className='form-group'>
               <label htmlFor='location'>Location</label>
               <input
@@ -121,23 +141,15 @@ function UpdateFestivalInfo(props) {
 
             <div className='form-group'>
               <label htmlFor='genre'>Genre</label>
-              <textarea
+              <input
                 type='text'
                 placeholder='Genre of the Festival'
-                name='description'
+                name='genre'
                 className='form-control'
                 value={festival.genre}
                 onChange={onChange}
               />
             </div>
-            <br />
-
-            <div className="form-group"> /* TODO */
-                <DateRangePicker showOneCalendar 
-                  value={festival.date}
-                  onChange={onChange}
-                />
-              </div>
             <br />
 
             <button

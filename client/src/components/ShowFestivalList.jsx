@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import FestivalCard from './FestivalCard';
 
 function ShowFestivalList() {
   const [festivals, setFestivals] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios

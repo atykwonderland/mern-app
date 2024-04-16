@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { DateRangePicker } from 'rsuite';
 
 const CreateFestival = (props) => {
   const navigate = useNavigate();
 
   const [festival, setFestival] = useState({
     name: "",
-    date: {
-      start: "",
-      end: ""
-    },
+    date_start: "",
+    date_end: "",
     location: "",
     organizer: "",
     genre: "",
@@ -28,23 +25,20 @@ const CreateFestival = (props) => {
       .then((res) => {
         setFestival({
           name: "",
-          date: {
-            start: "",
-            end: ""
-          },
+          date_start: "",
+          date_end: "",
           location: "",
           organizer: "",
           genre: "",
         });
-        // Push to /
-        navigate("/");
       })
       .catch((err) => {
         console.log("Error in CreateFestival!");
       });
+    navigate("/festivals");
   };
   return (
-    <div className="createFestival">
+    <div className="CreateFestival">
       <div className="container">
         <div className="row">
           <div className="col-md-8 m-auto">
@@ -57,56 +51,79 @@ const CreateFestival = (props) => {
             <h1 className="display-4 text-center">Add Festival</h1>
             <p className="lead text-center">Create new festival</p>
             <form noValidate onSubmit={onSubmit}>
-              <div className="form-group">
-                <input
-                  type="text"
-                  placeholder="Festival Name"
-                  name="name"
-                  className="form-control"
-                  value={festival.name}
-                  onChange={onChange}
-                />
-              </div>
-              <br />
-              <div className="form-group">
-                <input
-                  type="text"
-                  placeholder="Location"
-                  name="location"
-                  className="form-control"
-                  value={festival.location}
-                  onChange={onChange}
-                />
-              </div>
-              <br />
-              <div className="form-group">
-                <input
-                  type="text"
-                  placeholder="organizer"
-                  name="organizer"
-                  className="form-control"
-                  value={festival.organizer}
-                  onChange={onChange}
-                />
-              </div>
-              <br />
-              <div className="form-group">
-                <input
-                  type="text"
-                  placeholder="genre"
-                  name="genre"
-                  className="form-control"
-                  value={festival.genre}
-                  onChange={onChange}
-                />
-              </div>
-              <br /> 
-              <div className="form-group">
-                <DateRangePicker showOneCalendar 
-                  value={festival.date}
-                  onChange={onChange}
-                />
-              </div>
+            <div className='form-group'>
+              <label htmlFor='name'>Name</label>
+              <input
+                type='text'
+                placeholder='Festival Name'
+                name='name'
+                className='form-control'
+                value={festival.name}
+                onChange={onChange}
+              />
+            </div>
+            <br />
+            <div className='form-group'>
+              <label htmlFor='date_start'>Start Date</label>
+              <input
+                type='date'
+                placeholder='Start Date'
+                name='date_start'
+                className='form-control'
+                value={festival.date_start}
+                onChange={onChange}
+              />
+            </div>
+            <br />
+            <div className='form-group'>
+              <label htmlFor='date_end'>End Date</label>
+              <input
+                type='date'
+                placeholder='End Date'
+                name='date_end'
+                className='form-control'
+                value={festival.date_end}
+                onChange={onChange}
+              />
+            </div>
+            <br />
+            <div className='form-group'>
+              <label htmlFor='location'>Location</label>
+              <input
+                type='text'
+                placeholder='Location'
+                name='location'
+                className='form-control'
+                value={festival.location}
+                onChange={onChange}
+              />
+            </div>
+            <br />
+
+            <div className='form-group'>
+              <label htmlFor='organizer'>Organizer</label>
+              <input
+                type='text'
+                placeholder='Organizer'
+                name='organizer'
+                className='form-control'
+                value={festival.organizer}
+                onChange={onChange}
+              />
+            </div>
+            <br />
+
+            <div className='form-group'>
+              <label htmlFor='genre'>Genre</label>
+              <input
+                type='text'
+                placeholder='Genre of the Festival'
+                name='genre'
+                className='form-control'
+                value={festival.genre}
+                onChange={onChange}
+              />
+            </div>
               <button
                 type="submit"
                 className="btn btn-outline-warning btn-block mt-4 mb-4 w-100"
